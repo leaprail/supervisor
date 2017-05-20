@@ -1,49 +1,49 @@
-[<%= @prog.eventlistener ? 'eventlistener' : 'program' %>:<%= @prog.service_name %>]
-command=<%= @prog.command %>
-process_name=<%= @prog.process_name %>
-numprocs=<%= @prog.numprocs %>
-numprocs_start=<%= @prog.numprocs_start %>
-priority=<%= @prog.priority %>
-autostart=<%= @prog.autostart ? 'true' : 'false' %>
-autorestart=<%= @prog.autorestart.is_a?(String) ? @prog.autorestart : ( @prog.autorestart ? 'true' : 'false' ) %>
-startsecs=<%= @prog.startsecs %>
-startretries=<%= @prog.startretries %>
-exitcodes=<%= @prog.exitcodes.join(',') %>
-stopsignal=<%= @prog.stopsignal %>
-stopwaitsecs=<%= @prog.stopwaitsecs %>
-<% unless @prog.stopasgroup.nil? %>
-stopasgroup=<%= @prog.stopasgroup %>
+[<%= @eventlistener ? 'eventlistener' : 'program' %>:<%= @process_name %>]
+command=<%= @command %>
+process_name=<%= @process_name %>
+numprocs=<%= @numprocs %>
+numprocs_start=<%= @numprocs_start %>
+priority=<%= @priority %>
+autostart=<%= @autostart ? 'true' : 'false' %>
+autorestart=<%= @autorestart.is_a?(String) ? @autorestart : ( @autorestart ? 'true' : 'false' ) %>
+startsecs=<%= @startsecs %>
+startretries=<%= @startretries %>
+exitcodes=<%= @exitcodes.join(',') %>
+stopsignal=<%= @stopsignal %>
+stopwaitsecs=<%= @stopwaitsecs %>
+<% unless @stopasgroup.nil? %>
+stopasgroup=<%= @stopasgroup %>
 <% end %>
-<% unless @prog.killasgroup.nil? %>
-killasgroup=<%= @prog.killasgroup %>
+<% unless @killasgroup.nil? %>
+killasgroup=<%= @killasgroup %>
 <% end %>
-<% if @prog.user %>
-user=<%= @prog.user %>
+<% if @user %>
+user=<%= @user %>
 <% end %>
-redirect_stderr=<%= @prog.redirect_stderr ? 'true' : 'false' %>
-stdout_logfile=<%= @prog.stdout_logfile %>
-stdout_logfile_maxbytes=<%= @prog.stdout_logfile_maxbytes %>
-stdout_logfile_backups=<%= @prog.stdout_logfile_backups %>
-stdout_capture_maxbytes=<%= @prog.stdout_capture_maxbytes %>
-stdout_events_enabled=<%= @prog.stdout_events_enabled ? 'true' : 'false' %>
-stderr_logfile=<%= @prog.stderr_logfile %>
-stderr_logfile_maxbytes=<%= @prog.stderr_logfile_maxbytes %>
-stderr_logfile_backups=<%= @prog.stderr_logfile_backups %>
-stderr_capture_maxbytes=<%= @prog.stderr_capture_maxbytes %>
-stderr_events_enabled=<%= @prog.stderr_events_enabled ? 'true' : 'false' %>
-<% unless @prog.environment.empty? %>
-environment=<%= @prog.environment.sort.map{|k,v| "#{k}=\"#{v}\""}.join(',') %>
+redirect_stderr=<%= @redirect_stderr ? 'true' : 'false' %>
+stdout_logfile=<%= @stdout_logfile %>
+stdout_logfile_maxbytes=<%= @stdout_logfile_maxbytes %>
+stdout_logfile_backups=<%= @stdout_logfile_backups %>
+stdout_capture_maxbytes=<%= @stdout_capture_maxbytes %>
+stdout_events_enabled=<%= @stdout_events_enabled ? 'true' : 'false' %>
+stderr_logfile=<%= @stderr_logfile %>
+stderr_logfile_maxbytes=<%= @stderr_logfile_maxbytes %>
+stderr_logfile_backups=<%= @stderr_logfile_backups %>
+stderr_capture_maxbytes=<%= @stderr_capture_maxbytes %>
+stderr_events_enabled=<%= @stderr_events_enabled ? 'true' : 'false' %>
+<% unless @environment.empty? %>
+environment=<%= @environment.sort.map{|k,v| "#{k}=\"#{v}\""}.join(',') %>
 <% end %>
-<% if @prog.directory %>
-directory=<%= @prog.directory %>
+<% if @directory %>
+directory=<%= @directory %>
 <% end %>
-<% if @prog.umask %>
-umask=<%= @prog.umask %>
+<% if @umask %>
+umask=<%= @umask %>
 <% end %>
-serverurl=<%= @prog.serverurl %>
-<% unless @prog.eventlistener_events.nil? or @prog.eventlistener_events.empty? %>
-events=<%= @prog.eventlistener_events.join(',') %>
+serverurl=<%= @serverurl %>
+<% unless @eventlistener_events.nil? or @eventlistener_events.empty? %>
+events=<%= @eventlistener_events.join(',') %>
 <% end %>
-<% unless @prog.eventlistener_buffer_size.nil? %>
-buffer_size=<%= @prog.eventlistener_buffer_size %>
+<% unless @eventlistener_buffer_size.nil? %>
+buffer_size=<%= @eventlistener_buffer_size %>
 <% end %>
