@@ -133,6 +133,7 @@ action_class.class_eval do
       group "root"
       mode "644"
       variables({
+        :service_name => service_name,
         :process_name => process_name,
         :command  => command,
         :numprocs => numprocs,
